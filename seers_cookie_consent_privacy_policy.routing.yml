@@ -1,0 +1,9 @@
+seers_cookie_consent_privacy_policy.seer_cookie_consent_form:
+  path: '/admin/config/seers_cookie_consent_privacy_policy/seercookieconsent'
+  defaults:
+    _form: '\Drupal\seers_cookie_consent_privacy_policy\Form\SeerCookieConsentForm'
+    _title: 'SeerCookieConsentForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

@@ -1,0 +1,13 @@
+{
+    "name": "seers_cookie_consent_privacy_policy",
+    "type": "drupal-module",
+    "description": "Seers cookie consent fulfils the requirements of transparency, consent and documentation under ePrivacy Directive and GDPR.",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/seers_cookie_consent_privacy_policy",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/seers_cookie_consent_privacy_policy",
+        "source": "http://cgit.drupalcode.org/seers_cookie_consent_privacy_policy"
+    }
+}

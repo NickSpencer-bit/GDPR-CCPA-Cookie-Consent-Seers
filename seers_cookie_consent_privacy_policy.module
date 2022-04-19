@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * @file
+ * Contains seers_cookie_consent_privacy_policy.module.
+ */
+
+ /**
+ * Implements hook_install().
+ */
+function seers_cookie_consent_privacy_policy_install()
+{
+  $modulename = basename(__FILE__, '.module');
+
+  \Drupal::service('custom_functions')->doActiveInactive(1, $modulename);
+
+}
+
+
+/**
+ * Implements hook_preprocess().
+ */
+function seers_cookie_consent_privacy_policy_preprocess_page(&$variables, $hook)
+{
+
+  $variables['#attached']['library'][] = 'seers_cookie_consent_privacy_policy/global';
+
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function seers_cookie_consent_privacy_policy_page_attachments(&$page)
+{
+  $config = \Drupal::config('seers_cookie_consent_privacy_policy.seercookieconsent')->getRawData();
+  /**
+   * Initial JS.
+   */
+  if (!empty($config["cookie_id"])) {
+    $page['#attached']['html_head'][] = [
+      [
+        // Add a <script> tag.
+        '#tag' => 'script',
+        // Add attributes to the <script> tag.
+        '#attributes' => [
+          'src' => 'https://cmp.seersco.com/script/cb.js',
+          'type' => 'text/javascript',
+          'data-key' => $config["cookie_id"],
+          'data-name' => 'CookieXray',
+          'async' => false
+        ],
+        // Give weight so it appears after meta tags, etc.
+        '#weight' => -1,
+      ],
+      // A key, to make it possible to recognize this HTML <HEAD> element when altering.
+      'seers cookie consent'
+    ];
+  }
+}
+
+/**
+ * Implements hook_preprocess_region().
+ */
+function seers_cookie_consent_privacy_policy_preprocess_region(&$variables)
+{
+  if ($variables['region'] == 'content') {
+    $content = $variables['content']->__toString();
+    $variables['content'] = Drupal\Core\Render\Markup::create($content . '<div id="seers-cookie-consent"></div>');
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function seers_cookie_consent_privacy_policy_uninstall()
+{
+  $modulename = basename(__FILE__, '.module');
+
+  \Drupal::service('custom_functions')->doActiveInactive(0, $modulename);
+
+}

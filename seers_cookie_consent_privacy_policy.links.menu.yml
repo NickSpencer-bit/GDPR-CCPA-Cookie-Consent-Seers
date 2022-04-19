@@ -1,0 +1,6 @@
+seers_cookie_consent_privacy_policy.seer_cookie_consent_form:
+  title: 'SeerCookieConsentForm'
+  route_name: seers_cookie_consent_privacy_policy.seer_cookie_consent_form
+  description: 'Enter your cookie id'
+  parent: system.admin_config_system
+  weight: 99
