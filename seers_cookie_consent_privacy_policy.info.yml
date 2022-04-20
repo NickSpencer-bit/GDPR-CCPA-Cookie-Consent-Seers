@@ -1,6 +1,6 @@
 name: 'Seers Cookie Consent Banner Privacy Policy'
 type: module
 description: 'Seers cookie consent fulfils the requirements of transparency, consent and documentation under ePrivacy Directive and GDPR.'
-core: 8.x
+version: 1.0.3
 core_version_requirement: ^7 || ^8 || ^9
 package: 'Custom'
