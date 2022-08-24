@@ -8,7 +8,7 @@ namespace Drupal\seers_cookie_consent_privacy_policy\Service;
  */
 class CustomFunctions {
 
-    public $apisecrekkey = '$2y$10$9ygTfodVBVM0XVCdyzEUK.0FIuLnJT0D42sIE6dIu9r/KY3XaXXyS';
+    public $apisecrekkey = '----theapisecretkey-------';
 
   /**
    * Does something.
